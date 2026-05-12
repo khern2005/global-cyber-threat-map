@@ -10,82 +10,10 @@ from streamlit_autorefresh import st_autorefresh
 st.set_page_config(
     page_title="Global Cyber Threat Map",
     page_icon="🌍",
-    layout="wide"
+    layout="wide",
+    initial_sidebar_state="expanded"
 )
 
-# st.markdown(
-#     """
-#     <style>
-
-#     /* Main app background */
-#     .stApp {
-#         background-color: #0e1117;
-#         color: #f5f5f5;
-#     }
-
-#     /* Main content */
-#     .main {
-#         background-color: #0e1117;
-#         color: #f5f5f5;
-#     }
-
-#     /* All text */
-#     html, body, [class*="css"] {
-#         color: #f5f5f5 !important;
-#     }
-
-#     /* Headers */
-#     h1, h2, h3, h4 {
-#         color: #f5f5f5 !important;
-#     }
-
-#     /* Metric cards */
-#     div[data-testid="metric-container"] {
-#         background-color: #161b22;
-#         border: 1px solid #30363d;
-#         padding: 15px;
-#         border-radius: 12px;
-#     }
-
-#     /* Metric text */
-#     div[data-testid="metric-container"] * {
-#         color: #f5f5f5 !important;
-#     }
-
-#     /* Sidebar */
-#     section[data-testid="stSidebar"] {
-#         background-color: #111827;
-#     }
-
-#     section[data-testid="stSidebar"] * {
-#         color: #f5f5f5 !important;
-#     }
-
-#     /* Threat cards */
-#     .threat-card {
-#         background-color: #161b22;
-#         padding: 14px;
-#         border-radius: 12px;
-#         border-left: 5px solid #ff4b4b;
-#         margin-bottom: 10px;
-#         color: #f5f5f5 !important;
-#     }
-
-#     /* Muted text */
-#     .small-muted {
-#         color: #9ca3af !important;
-#         font-size: 14px;
-#     }
-
-#     /* Tables */
-#     .stDataFrame {
-#         background-color: #161b22;
-#     }
-
-#     </style>
-#     """,
-#     unsafe_allow_html=True
-# )
 
 st.markdown("# 🌍 Global Cyber Threat Intelligence Dashboard")
 st.markdown(
@@ -93,10 +21,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-refresh_count = st_autorefresh(
-    interval=60 * 1000,
-    key="threat_map_refresh"
-)
+
 
 st.caption(f"Dashboard refreshed: {datetime.now().strftime('%Y-%m-%d %I:%M:%S %p')}")
 st.caption("Threat feeds are cached to avoid overloading public sources.")
@@ -386,7 +311,7 @@ try:
             marker=dict(
                 size=22,
                 symbol="star",
-                color="blue",
+                color="green",
                 line=dict(width=2, color="black")
             ),
             text=[f"<b>Target:</b> {target_country}"],
